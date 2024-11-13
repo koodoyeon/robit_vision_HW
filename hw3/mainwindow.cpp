@@ -1,3 +1,17 @@
+
+
+/*
+K = 3
+
+K 값 선정 이유
+
+   - SSD(클러스터 내 분산) 감소 그래프에서 K = 3에서 감소폭이 둔해지는 지점.
+   - 초기 시각화 분석에서 데이터가 세 개의 군집으로 나뉨.
+   - K = 3으로 클러스터링 시 각 군집이 명확히 구분됨.
+
+*/
+
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <opencv2/opencv.hpp>
@@ -91,7 +105,7 @@ std::vector<int> MainWindow::kMeansClustering(const std::vector<cv::Point2f> &da
 
 void MainWindow::runClusteringAndDisplay() {
     auto data = loadData("/home/dy/K-meansclustering/cluster_data_.csv");
-    int k = 3;  // 적절한 k 값을 설정
+    int k = 3;
     cv::Mat clusterImage;
     auto labels = kMeansClustering(data, k, clusterImage);
 
